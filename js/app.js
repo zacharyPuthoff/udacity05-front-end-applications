@@ -1,32 +1,46 @@
+/* this function is used later to make the name and click count
+   info appear overlayed on the images; at the starting welcome
+   image, we don't want that though; this allows us to set it as
+   hidden in the css, and the make it visible after the first
+   click here*/
+let firstTimeThrough = true;
+function makeInfoVisible() {
+  document.querySelector('#name').style.visibility = 'visible';
+  document.querySelector('#count').style.visibility = 'visible';
+}
+
 // an object class with all relevant data for each picture object
 class Cat {
-  constructor(catName, picID) {
-    this.picID = picID;
-    this.catName = catName;
+  constructor(name, source) {
+    this.name = name;
+    this.source = source;
     this.clicks = 0;
   }
-  updateHTML() {
-    document.querySelector(`#${this.picID} ~ span.count`).innerText = `Clicks: ${this.clicks}`;
+  fillInHTML() {
+    document.querySelector('#the-cat-pic > img').src = this.source;
+    document.querySelector('#the-cat-pic > img').alt = this.name;
+    document.querySelector('#the-cat-pic > #name').innerText = this.name;
+    document.querySelector('#the-cat-pic > #count').innerText = `Clicks: ${this.clicks}`;
   }
 }
 
-/* the following selects all div's of the class 'cat-pics', and I also 
-   create an array to hold all the cat picture objects 
-*/ 
-const catPics = document.querySelectorAll('.cat-pics');
+/* this creates an array we'll use to store all our cat objects, and
+   then creates those objects using our constructor function while
+   pushing them into our array */   
 let theCatList = [];
+theCatList.push(new Cat('Shelly', 'img/shelly.jpg'));
+theCatList.push(new Cat('Garfield', 'img/garfield.jpg'));
+theCatList.push(new Cat('Hobbes', 'img/hobbes.jpg'));
+theCatList.push(new Cat('Salem', 'img/salem.jpg'));
+theCatList.push(new Cat('Cheshire Cat', 'img/cheshire.jpg'));
 
-/* this code cycles through all the catPics and pulls out the name & ID 
-   for each cat picture, then creates a new cat picture object and
-   assigns those values to it, and then pushes it into our array of  
-   cat picture objects which we'll reference in a moment
-*/ 
-for (let eachCat of catPics) {
-  let thePicName = eachCat.querySelector('.name').innerText;
-  let thePicID = eachCat.querySelector('img').id;
-  let newCat = new Cat(thePicName, thePicID);
-
-  theCatList.push(newCat);
+/* for each cat in the array, we create a p node and then add a child node that
+   is populated with the name of the cat using literal notation
+*/
+for (let eachCat of theCatList) {
+  let picNameNode = document.createElement('p');
+  let picName = document.createTextNode(`${eachCat.name}`);
+  document.querySelector('aside').appendChild(picNameNode).appendChild(picName);
 }
 
 /* this is the event listener that records the clicks a user performs; 
@@ -36,16 +50,29 @@ for (let eachCat of catPics) {
    use that info to increment the clicks property in that particular cat picture
    object, and then use the built in method to change the HTML on the page so 
    the click count displays accurately
-*/ 
-document.querySelector('#the-click-area').addEventListener('click', (event) => {
-  let clickedElement = event.target.nodeName.toLowerCase();
+*/
+document.querySelector('aside').addEventListener('click', (event) => {
 
-  if (clickedElement !== 'img') {
+  let clickedElement = event.target;
+
+  // makes sure text is clicked on
+  if (clickedElement.nodeName.toLowerCase() !== 'p') {
     return;
   }
 
-  let catArrayIndex = Number(event.target.id.slice(-2)) - 1;
-
-  theCatList[catArrayIndex].clicks++;
-  theCatList[catArrayIndex].updateHTML();
+  // matches what was clicked on to one of the cat objects in our array
+  // and then increments the click count and changes the relevant HTML
+  for (let thisCat of theCatList) {
+    if (thisCat.name === clickedElement.innerText) {
+      thisCat.clicks++;
+      thisCat.fillInHTML();
+    }
+  }
+  
+  // only runs the first time this code is called and makes the information
+  // for the name and click count visible on the image
+  if (firstTimeThrough === true) {
+    makeInfoVisible();
+    firstTimeThrough = false;
+  }
 });

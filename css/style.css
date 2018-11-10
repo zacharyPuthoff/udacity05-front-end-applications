@@ -11,6 +11,7 @@ body {
 
 /* the section with our title, pictures, and other info */
 .container {
+  height: 700px;
   display: flex;
   flex-flow: column;
   padding: 3% 3% 2.5% 3%;
@@ -28,17 +29,26 @@ h1 {
 }
 
 /* the container for the pictures; basically sets behavior of the items inside it */
-#the-click-area {
+#the-cat-area {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
+}
+
+/* this is the area with the list of cat names */
+aside {
+  color: white;
+  font-weight: bold;
+  width: 18.5%;
+  border-right: 1px solid white;
 }
 
 /* the container for each individual picture and it's information */
-.cat-pics {
-  width: 48.5%;
+#the-cat-pic {
+  width: 78.5%;
   padding-bottom: 0px;
   margin-top: 3%;
   position: relative; 
@@ -56,7 +66,8 @@ img {
 }
 
 /* positions the name on top of the image and defines it's stlying */
-.name {
+#name {
+  visibility: hidden;
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 0px 10px 10px 0px;
@@ -69,7 +80,8 @@ img {
 }
 
 /* position the count total on top of the image and defines it's styling */
-.count {
+#count {
+  visibility: hidden;
   position: absolute;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px 10px 10px 10px;
