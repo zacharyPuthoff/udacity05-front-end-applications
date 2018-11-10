@@ -13,7 +13,7 @@ body {
 .container {
   display: flex;
   flex-flow: column;
-  padding: 3%;
+  padding: 3% 3% 2.5% 3%;
   background-color: #0D2356;
   box-shadow: 12px 15px 20px 0 gray;
   border-radius: 10px 10px 10px 10px;
@@ -23,12 +23,15 @@ body {
 h1 {
   color: white;
   font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* the container for the pictures; basically sets behavior of the items inside it */
 #the-click-area {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -37,6 +40,7 @@ h1 {
 .cat-pics {
   width: 48.5%;
   padding-bottom: 0px;
+  margin-top: 3%;
   position: relative; 
   /* the above line allows us to position the name and count relative to the
       limits of this container, rather than of the whole page; useful for the
@@ -54,7 +58,7 @@ img {
 /* positions the name on top of the image and defines it's stlying */
 .name {
   position: absolute;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 0px 10px 10px 0px;
   bottom: 14px;
   padding: 6px 10px 6px 10px;
@@ -67,11 +71,11 @@ img {
 /* position the count total on top of the image and defines it's styling */
 .count {
   position: absolute;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 10px 0px 0px 10px;
   top: 14px;
   right: 0;
-  padding: 6px 10px 6px 10px;
+  padding: 6px 10px 4px 10px;
   text-align: center;
   color: white;
   font-weight: bold;
