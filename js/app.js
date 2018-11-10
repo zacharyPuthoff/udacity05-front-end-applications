@@ -7,6 +7,7 @@ let firstTimeThrough = true;
 function makeInfoVisible() {
   document.querySelector('#name').style.visibility = 'visible';
   document.querySelector('#count').style.visibility = 'visible';
+  document.querySelector('#the-cat-pic > img').style.border = '2px solid white';
 }
 
 // an object class with all relevant data for each picture object

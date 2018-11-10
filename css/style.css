@@ -11,7 +11,7 @@ body {
 
 /* the section with our title, pictures, and other info */
 .container {
-  height: 700px;
+  height: 720px;
   display: flex;
   flex-flow: column;
   padding: 3% 3% 2.5% 3%;
@@ -24,6 +24,7 @@ body {
 h1 {
   color: white;
   font-weight: bold;
+  font-size: 48pt;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -42,13 +43,14 @@ h1 {
 aside {
   color: white;
   font-weight: bold;
-  width: 18.5%;
+  width: 20.5%;
   border-right: 1px solid white;
+  font-size: 18pt;
 }
 
 /* the container for each individual picture and it's information */
 #the-cat-pic {
-  width: 78.5%;
+  width: 76.5%;
   padding-bottom: 0px;
   margin-top: 3%;
   position: relative; 
@@ -62,7 +64,6 @@ aside {
 img {
   width: 100%;
   border-radius: 10px 10px 10px 10px;
-  border: 2px solid white;
 }
 
 /* positions the name on top of the image and defines it's stlying */
