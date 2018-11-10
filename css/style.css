@@ -4,31 +4,75 @@
 }
 
 body {
-  width: 684px;
+  width: 800px;
   margin: 0 auto 0 auto;
   margin-top: 100px;
 }
 
+/* the section with our title, pictures, and other info */
 .container {
   display: flex;
   flex-flow: column;
-  padding: 20px;
+  padding: 3%;
   background-color: #0D2356;
   box-shadow: 12px 15px 20px 0 gray;
   border-radius: 10px 10px 10px 10px;
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+/* simple styling of the page title */
+h1 {
   color: white;
   font-weight: bold;
 }
 
+/* the container for the pictures; basically sets behavior of the items inside it */
+#the-click-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* the container for each individual picture and it's information */
+.cat-pics {
+  width: 48.5%;
+  padding-bottom: 0px;
+  position: relative; 
+  /* the above line allows us to position the name and count relative to the
+      limits of this container, rather than of the whole page; useful for the
+      overlayed info effects i'm going for here
+  */
+}
+
+/* defines the styling of the image itself */
 img {
   width: 100%;
   border-radius: 10px 10px 10px 10px;
   border: 2px solid white;
+}
+
+/* positions the name on top of the image and defines it's stlying */
+.name {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0px 10px 10px 0px;
+  bottom: 14px;
+  padding: 6px 10px 6px 10px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+/* position the count total on top of the image and defines it's styling */
+.count {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px 0px 0px 10px;
+  top: 14px;
+  right: 0;
+  padding: 6px 10px 6px 10px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
