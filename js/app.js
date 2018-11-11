@@ -36,13 +36,17 @@ theCatList.push(new Cat('Salem', 'img/salem.jpg'));
 theCatList.push(new Cat('Cheshire Cat', 'img/cheshire.jpg'));
 
 /* for each cat in the array, we create a p node and then add a child node that
-   is populated with the name of the cat using literal notation
+   is populated with the name of the cat using literal notation; that p node
+   is then appended to a document fragment, which is appended to the aside tag
+   after the for loop is done; this ensures that our DOM is only redrawn once
 */
+let listFragment =document.createDocumentFragment();
 for (let eachCat of theCatList) {
   let picNameNode = document.createElement('p');
   let picName = document.createTextNode(`${eachCat.name}`);
-  document.querySelector('aside').appendChild(picNameNode).appendChild(picName);
+  listFragment.appendChild(picNameNode).appendChild(picName);
 }
+document.querySelector('aside').appendChild(listFragment);
 
 /* this is the event listener that records the clicks a user performs; 
    the first part checks to be sure that an image was clicked on, and if
