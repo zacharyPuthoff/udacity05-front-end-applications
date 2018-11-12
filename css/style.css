@@ -43,14 +43,21 @@ h1 {
 aside {
   color: white;
   font-weight: bold;
-  width: 20.5%;
-  border-right: 1px solid white;
+  width: 25.5%;
+  border-right: 2px solid white;
   font-size: 18pt;
+}
+
+aside > p {
+  padding-left: 10px;
+  padding-top: 4px;
+  padding-bottom: 2px;
+  border-radius: 10px 0 0 10px;
 }
 
 /* the container for each individual picture and it's information */
 #the-cat-pic {
-  width: 76.5%;
+  width: 71.5%;
   padding-bottom: 0px;
   margin-top: 3%;
   position: relative; 
@@ -66,30 +73,16 @@ img {
   border-radius: 10px 10px 10px 10px;
 }
 
-/* positions the name on top of the image and defines it's stlying */
-#name {
-  visibility: hidden;
-  position: absolute;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 0px 10px 10px 0px;
-  bottom: 14px;
-  padding: 6px 10px 6px 18px;
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  font-size: 16pt;
-}
-
 /* position the count total on top of the image and defines it's styling */
 #count {
   visibility: hidden;
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 10px 10px 10px 10px;
-  bottom: 14px;
-  right: 12px;
-  padding: 6px 10px 4px 10px;
+  color: #191C57;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0px 10px 10px 0px;
+  bottom: 16px;
+  padding: 6px 10px 4px 22px;
   text-align: center;
-  color: white;
+  font-size: 14pt;
   font-weight: bold;
 }
