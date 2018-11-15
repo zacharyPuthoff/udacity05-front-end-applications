@@ -15,14 +15,33 @@
 
     <h1>Cat Clicker</h1>
 
-    <section id="the-cat-area">
-      <aside>
+    <section id="the-cat-box">
+
+      <aside id="cat-list"></aside>
+
+      <aside id="admin" onsubmit="octopus.saveButtonListener();">
+        <label for="new-name">Name</label>
+        <input type="text" name="new-name" id="new-name"><br><br>
+
+        <label for="new-pic-url">Picture URL</label>
+        <input type="text" name="new-pic-url" id="new-pic-url"><br><br>
+
+        <label for="new-click-count">Click Count</label>
+        <input type="number" name="new-click-count" id="new-click-count" min="0"><br><br><br>
+
+        <div id="button-area">
+          <button type="submit" id="save-button">Save</button>
+          <button id="cancel-button">Cancel</button>
+        </div>
+
       </aside>
-      <div id="the-cat-pic">
-        <img src="" alt="">
-        <span id="count"></span>
+
+      <div id="cat-display">
+        <img id="cat-pic" src="" alt="">
+        <span id="click-count"></span>
       </div>
     </section>
+        <button id="admin-button">Admin</button>
 
   </div>
 
