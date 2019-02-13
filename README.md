@@ -1,3 +1,3 @@
-# Udacity Front End Application Exercises
+# Udacity Front End Nanodegree: The Cat Clicker
 
-The series of exercises involving a 'cat clicker' for the Udacity Front End Nanodegree
+A project for the FEND that demonstrates an understanding of the MVO programming structure.
